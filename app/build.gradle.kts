@@ -1,24 +1,17 @@
 plugins {
     alias(libs.plugins.android.application)
-
-        id("com.google.devtools.ksp") version "2.3.4"
-
-
+    id("com.google.devtools.ksp") version "2.3.4"
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
     compileSdk = 37
     buildFeatures {
         buildConfig = true
+        viewBinding = true
+        dataBinding = true
     }
     namespace = "com.example.tenantmanagementsystem"
-    compileSdk {
-        version = release(37)
-        buildFeatures {
-            viewBinding = true
-            dataBinding = true
-        }
-    }
 
     defaultConfig {
         applicationId = "com.example.tenantmanagementsystem"
@@ -45,6 +38,9 @@ android {
 }
 
 dependencies {
+    implementation("androidx.navigation:navigation-fragment-ktx:2.9.8")
+    implementation("androidx.navigation:navigation-ui-ktx:2.9.8")
+
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
